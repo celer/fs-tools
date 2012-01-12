@@ -1,0 +1,188 @@
+<!DOCTYPE html><!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><title>fs-tools 0.1.0 API documentation</title><meta name="generator" content="ndoc"><meta name="description" content=""><meta name="author" content=""><meta name="viewport" content="width=device-width,initial-scale=1"><!-- CSS--><link rel="stylesheet" href="stylesheets/main.css"><!-- end CSS--><script src="javascripts/modernizr-2.0.6.min.js"></script></head><body><nav class="sidebar"><form id="search"><input type="search" size="20" title="Search" placeholder="Search"/></form><ul id="search-results" class="menu"></ul><ul class="menu"><li><div class="menu-item"><a href="#FsTools" class="namespace" title="FsTools (namespace)" data-id="FsTools">FsTools</a></div><ul class=""><li><div class="menu-item"><a href="#FsTools.copy" class="class-method" title="FsTools.copy (class method)" data-id="FsTools.copy">copy</a></div></li><li><div class="menu-item"><a href="#FsTools.mkdir" class="class-method" title="FsTools.mkdir (class method)" data-id="FsTools.mkdir">mkdir</a></div></li><li><div class="menu-item"><a href="#FsTools.move" class="class-method" title="FsTools.move (class method)" data-id="FsTools.move">move</a></div></li><li><div class="menu-item"><a href="#FsTools.remove" class="class-method" title="FsTools.remove (class method)" data-id="FsTools.remove">remove</a></div></li><li><div class="menu-item"><a href="#FsTools.walk" class="class-method" title="FsTools.walk (class method)" data-id="FsTools.walk">walk</a></div></li></ul></li></ul></nav><article class="main"><article id="home" data-title="Home" class="article"><div class="readme"><h1>fs-tools</h1>
+<p><a href="http://travis-ci.org/nodeca/fs-tools"><img src="https://secure.travis-ci.org/nodeca/fs-tools.png" alt="Build Status"></a>
+
+</p>
+<p>Useful file utitiles. See <a href="http://nodeca.github.com/fs-tools/#FsTools">API Documentation</a> for detailed info.
+
+</p>
+<hr>
+<h3>walk(path, [pattern,] iterator[, callback])</h3>
+<p>Recurcively scan files by regex pattern &amp; apply iterator to each. Iterator
+applied only to files, not to directories.
+
+
+</p>
+<h3>remove(path, callback)</h3>
+<p>Recursively delete directory with all content.
+
+
+</p>
+<h3>mkdir(path, mode = &apos;0755&apos;, callback)</h3>
+<p>Recursively make path.
+
+
+</p>
+<h3>copy(src, dst, callback)</h3>
+<p>Copy file or directory.
+Not optimized for big sourses (read all to memory at once).
+
+
+</p>
+<h3>move(src, dst, callback)</h3>
+<p>Move file or directory.
+Works within same partition only (uses <code>rename(2)</code>).
+
+
+</p>
+<h2>License</h2>
+<p>View the <a href="https://github.com/nodeca/fs-tools/blob/master/LICENSE">LICENSE</a> file (MIT).
+</p></div></article><article id="FsTools" data-title="FsTools (namespace)" class="article"><header><ul class="breadcrumbs"><li><a href="#home">Home</a></li><li><a href="#FsTools" class="" title="FsTools (namespace)" data-id="FsTools">FsTools</a></li></ul><h2><span class="type">namespace</span><span class="name">FsTools</span></h2><div class="source"><a href="https://github.com/nodeca/fs-tools/blob/58863a/lib/fs-tools.js#L6">View source code</a></div></header><div class="section description"><h3>Description</h3><div class="content"><p>Collection of FS related tools, that stdlib lack of.</p></div></div><div class="section class_methods"><h3>Class methods</h3><div class="content"><ul class="method-list"><li><a href="#FsTools.copy" class="" title="FsTools.copy (class method)" data-id="FsTools.copy">copy</a></li><li><a href="#FsTools.mkdir" class="" title="FsTools.mkdir (class method)" data-id="FsTools.mkdir">mkdir</a></li><li><a href="#FsTools.move" class="" title="FsTools.move (class method)" data-id="FsTools.move">move</a></li><li><a href="#FsTools.remove" class="" title="FsTools.remove (class method)" data-id="FsTools.remove">remove</a></li><li><a href="#FsTools.walk" class="" title="FsTools.walk (class method)" data-id="FsTools.walk">walk</a></li></ul></div></div></article><article id="FsTools.copy" data-title="FsTools.copy (class method)" class="article"><header><ul class="breadcrumbs"><li><a href="#home">Home</a></li><li><a href="#FsTools" class="" title="FsTools (namespace)" data-id="FsTools">FsTools</a></li><li><a href="#FsTools.copy" class="" title="FsTools.copy (class method)" data-id="FsTools.copy">copy</a></li></ul><h2><span class="type">class method</span><span class="name">FsTools.copy</span></h2><div class="source"><a href="https://github.com/nodeca/fs-tools/blob/58863a/lib/fs-tools.js#L477">View source code</a></div></header><div class="section method"><div class="content"><ul class="signatures"><li class="signature"><ul><li class="signature-call">FsTools.copy(src, dst, callback)</li><li class="signature-returns"><ul class="argument-types"><li class="argument-type">void</li></ul></li></ul></li></ul><ul class="argument-list"><li class="argument"><ul class="argument-details"><li class="argument-name">src</li><li class="argument-types"><ul><li class="argument-type">String</li></ul></li><li class="argument-description"><p>Source file</p></li></ul></li><li class="argument"><ul class="argument-details"><li class="argument-name">dst</li><li class="argument-types"><ul><li class="argument-type">String</li></ul></li><li class="argument-description"><p>Destination file</p></li></ul></li><li class="argument"><ul class="argument-details"><li class="argument-name">callback</li><li class="argument-types"><ul><li class="argument-type">Function</li></ul></li><li class="argument-description"><p>Fired after path has been copied</p></li></ul></li></ul><p>Copies <code>src</code> to <code>dst</code>, creates directory for given <code>dst</code> with
+<a href="#FsTools.mkdir" class="link-short" title="FsTools.mkdir (class method)" data-id="FsTools.mkdir">FsTools.mkdir</a> if needed. Fires <code>callback(err)</code> upon
+completion.
+
+</p>
+<h5>Example</h5>
+<pre><code>var src = &apos;/home/nodeca/secrets.yml&apos;,
+    dst = &apos;/home/nodeca/very/deep/secrets/main.yml&apos;;
+
+fstools.copy(src, dst, function (err) {
+  if (err) {
+    console.log(&quot;Failed copy &quot; + src + &quot; into &quot; + dst);
+    console.err(err);
+    process.exit(1);
+  } else {
+    console.log(&quot;Done!&quot;);
+    process.exit(0);
+  }
+});</code></pre></div></div></article><article id="FsTools.mkdir" data-title="FsTools.mkdir (class method)" class="article"><header><ul class="breadcrumbs"><li><a href="#home">Home</a></li><li><a href="#FsTools" class="" title="FsTools (namespace)" data-id="FsTools">FsTools</a></li><li><a href="#FsTools.mkdir" class="" title="FsTools.mkdir (class method)" data-id="FsTools.mkdir">mkdir</a></li></ul><h2><span class="type">class method</span><span class="name">FsTools.mkdir</span></h2><div class="source"><a href="https://github.com/nodeca/fs-tools/blob/58863a/lib/fs-tools.js#L413">View source code</a></div></header><div class="section method"><div class="content"><ul class="signatures"><li class="signature"><ul><li class="signature-call">FsTools.mkdir(path, mode, callback)</li><li class="signature-returns"><ul class="argument-types"><li class="argument-type">void</li></ul></li></ul></li><li class="signature"><ul><li class="signature-call">FsTools.mkdir(path, callback)</li><li class="signature-returns"><ul class="argument-types"><li class="argument-type">void</li></ul></li></ul></li></ul><ul class="argument-list"><li class="argument"><ul class="argument-details"><li class="argument-name">path</li><li class="argument-types"><ul><li class="argument-type">String</li></ul></li><li class="argument-description"><p>Path to create</p></li></ul></li><li class="argument"><ul class="argument-details"><li class="argument-name">mode</li><li class="argument-types"><ul><li class="argument-type">String</li><li class="argument-type">Number</li></ul></li><li class="argument-description"><p>Permission mode of new directory. See stdlib fs.mkdir for details. Default: &apos;0755&apos;.</p></li></ul></li><li class="argument"><ul class="argument-details"><li class="argument-name">callback</li><li class="argument-types"><ul><li class="argument-type">Function</li></ul></li><li class="argument-description"><p>Fired after path was created</p></li></ul></li></ul><p>Creates given path, creating parents recursively if needed.
+Similar to UNIX&apos; <code>mkdir -pf &lt;path&gt;</code>. After all will fire <code>callback(err)</code> with
+an error if there were any.
+
+
+</p>
+<h5>Example</h5>
+<pre><code>fstools.mkdir(&apos;/home/nodeca/media/xxx&apos;, function (err) {
+  if (err) {
+    console.log(&quot;Can&apos;t&apos; create directory&quot;);
+    console.err(err);
+    process.exit(1);
+  } else {
+    console.log(&quot;We can now store some romantic movies here&quot;);
+    process.exit(0);
+  }
+});</code></pre></div></div></article><article id="FsTools.move" data-title="FsTools.move (class method)" class="article"><header><ul class="breadcrumbs"><li><a href="#home">Home</a></li><li><a href="#FsTools" class="" title="FsTools (namespace)" data-id="FsTools">FsTools</a></li><li><a href="#FsTools.move" class="" title="FsTools.move (class method)" data-id="FsTools.move">move</a></li></ul><h2><span class="type">class method</span><span class="name">FsTools.move</span></h2><div class="source"><a href="https://github.com/nodeca/fs-tools/blob/58863a/lib/fs-tools.js#L536">View source code</a></div></header><div class="section method"><div class="content"><ul class="signatures"><li class="signature"><ul><li class="signature-call">FsTools.move(src, dst, callback)</li><li class="signature-returns"><ul class="argument-types"><li class="argument-type">void</li></ul></li></ul></li></ul><ul class="argument-list"><li class="argument"><ul class="argument-details"><li class="argument-name">src</li><li class="argument-types"><ul><li class="argument-type">String</li></ul></li><li class="argument-description"><p>Source file</p></li></ul></li><li class="argument"><ul class="argument-details"><li class="argument-name">dst</li><li class="argument-types"><ul><li class="argument-type">String</li></ul></li><li class="argument-description"><p>Destination file</p></li></ul></li><li class="argument"><ul class="argument-details"><li class="argument-name">callback</li><li class="argument-types"><ul><li class="argument-type">Function</li></ul></li><li class="argument-description"><p>Fired after path has been moved</p></li></ul></li></ul><p>Moves <code>src</code> to <code>dst</code>, creates directory for given <code>dst</code> with
+<a href="#FsTools.mkdir" class="link-short" title="FsTools.mkdir (class method)" data-id="FsTools.mkdir">FsTools.mkdir</a> if needed. Fires <code>callback(err)</code> upon
+completion.
+
+</p>
+<h5>Example</h5>
+<pre><code>var src = &apos;/home/nodeca/secrets.yml&apos;,
+    dst = &apos;/home/nodeca/very/deep/secrets/main.yml&apos;;
+
+fstools.move(src, dst, function (err) {
+  if (err) {
+    console.log(&quot;Failed move &quot; + src + &quot; to &quot; + dst);
+    console.err(err);
+    process.exit(1);
+  } else {
+    console.log(&quot;Done!&quot;);
+    process.exit(0);
+  }
+});</code></pre>
+<h5>Warning</h5>
+<p>This method will work ONLY when src and dst are within same partition.
+See issue #15: <a href="https://github.com/nodeca/fs-tools/issues/15">https://github.com/nodeca/fs-tools/issues/15</a></p></div></div></article><article id="FsTools.remove" data-title="FsTools.remove (class method)" class="article"><header><ul class="breadcrumbs"><li><a href="#home">Home</a></li><li><a href="#FsTools" class="" title="FsTools (namespace)" data-id="FsTools">FsTools</a></li><li><a href="#FsTools.remove" class="" title="FsTools.remove (class method)" data-id="FsTools.remove">remove</a></li></ul><h2><span class="type">class method</span><span class="name">FsTools.remove</span></h2><div class="source"><a href="https://github.com/nodeca/fs-tools/blob/58863a/lib/fs-tools.js#L367">View source code</a></div></header><div class="section method"><div class="content"><ul class="signatures"><li class="signature"><ul><li class="signature-call">FsTools.remove(path, callback)</li><li class="signature-returns"><ul class="argument-types"><li class="argument-type">void</li></ul></li></ul></li></ul><ul class="argument-list"><li class="argument"><ul class="argument-details"><li class="argument-name">path</li><li class="argument-types"><ul><li class="argument-type">String</li></ul></li><li class="argument-description"><p>Path to remove</p></li></ul></li><li class="argument"><ul class="argument-details"><li class="argument-name">callback</li><li class="argument-types"><ul><li class="argument-type">Function</li></ul></li><li class="argument-description"><p>Fired after path was removed</p></li></ul></li></ul><p>Removes given <code>path</code>. If it was a directory will remove it recursively,
+similar to UNIX&apos; <code>rm -rf &lt;path&gt;</code>. After all will fire <code>callback(err)</code> with
+an error if there were any.
+
+</p>
+<p>If given <code>path</code> was file - will proxy call to <code>fs.unlink</code>.
+
+
+</p>
+<h5>Example</h5>
+<pre><code>fstools.remove(&apos;/home/nodeca/trash&apos;, function (err) {
+  if (err) {
+    console.log(&quot;U can&apos;t touch that&quot;);
+    console.err(err);
+    process.exit(1);
+  } else {
+    console.log(&quot;It&apos;s Hammer time&quot;);
+    process.exit(0);
+  }
+});</code></pre></div></div></article><article id="FsTools.walk" data-title="FsTools.walk (class method)" class="article"><header><ul class="breadcrumbs"><li><a href="#home">Home</a></li><li><a href="#FsTools" class="" title="FsTools (namespace)" data-id="FsTools">FsTools</a></li><li><a href="#FsTools.walk" class="" title="FsTools.walk (class method)" data-id="FsTools.walk">walk</a></li></ul><h2><span class="type">class method</span><span class="name">FsTools.walk</span></h2><div class="source"><a href="https://github.com/nodeca/fs-tools/blob/58863a/lib/fs-tools.js#L309">View source code</a></div></header><div class="section method"><div class="content"><ul class="signatures"><li class="signature"><ul><li class="signature-call">FsTools.walk(path, pattern, iterator[, callback])</li><li class="signature-returns"><ul class="argument-types"><li class="argument-type">void</li></ul></li></ul></li><li class="signature"><ul><li class="signature-call">FsTools.walk(path, iterator[, callback])</li><li class="signature-returns"><ul class="argument-types"><li class="argument-type">void</li></ul></li></ul></li></ul><p>Walks throught all files withing <code>path</code> (including sub-dirs) and calls
+<code>iterator</code> on each found file (or block device etc.) matching <code>pattern</code>.
+If no <code>pattern</code> was given - will fire call <code>iterator</code> for every single
+path found. After all iterations will call <code>callback</code> (if it was specified)
+with passing <code>error</code> as first arguemtn if there was an error.
+
+</p>
+<h5>Iterator</h5>
+<p>All iterations are running within promise. So <code>callback</code> given to the <code>walk</code>
+will fire only after all <code>iterator</code> callbacks willnotify they finished their
+work:
+
+</p>
+<pre><code>var iterator = function (path, stats, callback) {
+  // ... do something
+  if (err) {
+    // ... if error occured we can &quot;stop&quot; walker
+    callback(err);
+    return;
+  }
+  // ... if everything is good and finished notify walker we&apos;re done
+  callback();
+};</code></pre>
+<p>Iterator is called with following arguments:
+
+</p>
+<ul><li><code>path</code> (String): Full path of the found element (e.g. <code>/foo/bar.txt</code>)</li><li><code>stats</code> (fs.Stats): Stats object of found path</li><li><code>callback</code> (Function): Callback function to call after path processing </li></ul>
+<h5>Example</h5>
+<pre><code>fstools.walk(&apos;/home/nodeca&apos;, function (path, stats, callback) {
+  if (stats.isBlockDevice()) {
+    callback(Error(&quot;WTF? Block devices are not expetcted in my room&quot;));
+    return;
+  }
+
+  if (stats.isSocket()) {
+    console.log(&quot;Finally I found my socket&quot;);
+  }
+
+  callback();
+}, function (err) {
+  if (err) {
+    // shit happens!
+    console.error(err);
+    process.exit(1);
+  }
+
+  console.log(&quot;Hooray! We&apos;re done!&quot;);
+});
+</code></pre>
+<h5>Example (using pattern matching)</h5>
+<pre><code>fstools.walk(&apos;/home/nodeca&apos;, &apos;\.yml$&apos;, function (path, stats, callback) {
+  fs.readFile(path, &apos;utf-8&apos;, funtion (err, str) {
+    if (err) {
+      callback(err);
+      return;
+    }
+
+    console.log(str);
+    callback();
+  });
+}, function (err) {
+  if (err) {
+    console.error(err);
+  }
+
+  console.log(&apos;Done!&apos;);
+});</code></pre></div></div></article><footer class="footer"><p>Last updated on Thu, 12 Jan 2012 22:08:13 GMT. Generated by <a href="http://github.com/nodeca/ndoc">ndoc</a></p></footer></article><script src="javascripts/jquery.js"></script><!-- scripts concatenated and minified via ant build script--><script defer src="javascripts/plugins.js"></script>
+<script defer src="javascripts/prettify.js"></script>
+<script defer src="javascripts/script.js"></script>
+<!-- end scripts--><!--[if lt IE 7]><script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.3/CFInstall.min.js"></script><script>window.attachEvent('onload',function(){CFInstall.check({mode:'overlay'})})
+
+</script><![endif]--></body></html>
